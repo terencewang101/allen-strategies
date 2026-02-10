@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allen Strategies - Leadership Development & Executive Coaching</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background-color: #ffffff;
+            font-weight: 300;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        h1 { 
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        h2 { 
+            font-size: 2.75rem;
+            font-weight: 700;
+        }
+        h3 { 
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        p, li {
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        strong {
+            font-weight: 500;
+        }
+
+        em {
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        /* Header/Navigation */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1.25rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            transition: color 0.3s;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links a:hover {
+            color: #272266;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #272266;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .nav-links.mobile-active {
+            display: flex;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .hero-content h1 {
+            color: #272266;
+            margin-bottom: 2rem;
+            line-height: 1.15;
+        }
+
+        .hero-content h2 {
+            color: #272266;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-top: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-content p {
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-content .cta-button-small {
+            display: inline-block;
+            background-color: #7BC70F;
+            color: #ffffff;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+            letter-spacing: 0.02em;
+            margin-top: 1rem;
+        }
+
+        .hero-content .cta-button-small:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(123, 199, 15, 0.4);
+            background-color: #6eb00d;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Main Content Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-divider {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 2rem 0;
+        }
+
+        section h2 {
+            color: #272266;
+        }
+
+        /* How I Work Section */
+        .how-i-work {
+            background-color: #f8f9fa;
+        }
+
+        .work-list {
+            margin-top: 2rem;
+        }
+
+        .work-item {
+            margin-bottom: 2rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+
+        .work-item-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.2s;
+        }
+
+        .work-item-header:hover {
+            background-color: #f8f9fa;
+        }
+
+        .work-item-title {
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #272266;
+        }
+
+        .work-item-icon {
+            color: #272266;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .work-item-icon.rotated {
+            transform: rotate(180deg);
+        }
+
+        .work-item-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .work-item-content.expanded {
+            max-height: 5000px;
+        }
+
+        .work-item-footer {
+            padding: 1rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            display: none;
+        }
+
+        .work-item-footer.visible {
+            display: block;
+        }
+
+        .work-item-footer:hover {
+            background-color: #f8f9fa;
+        }
+
+        .work-item-footer-text {
+            color: #272266;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .work-item-footer-icon {
+            color: #272266;
+            font-size: 1rem;
+            margin-left: 0.5rem;
+        }
+
+        .work-item-inner {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+
+        .work-item-inner h3 {
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 1.25rem;
+        }
+
+        .work-item-inner h4 {
+            font-size: 1.25rem;
+            margin-top: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .work-item-inner p {
+            margin-bottom: 1.25rem;
+        }
+
+        .work-item-inner ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .work-item-inner ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 0.5rem;
+        }
+
+        .work-item-inner ul li:before {
+            display: none;
+        }
+
+        .programs-list {
+            list-style-type: disc;
+        }
+
+        .programs-list > li {
+            margin-bottom: 1rem;
+        }
+
+        .programs-list > li > ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+            list-style-type: disc;
+        }
+
+        .programs-list > li > ul > li {
+            margin-bottom: 0.25rem;
+        }
+
+        .coaching-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .coaching-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+        }
+
+        .coaching-card-icon {
+            width: 96px;
+            height: 96px;
+            min-height: 96px;
+            margin-bottom: 1rem;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .coaching-card-icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .coaching-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: #272266;
+            margin-bottom: 1rem;
+            margin-top: 0;
+        }
+
+        .coaching-card ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+        }
+
+        .coaching-card li {
+            margin-bottom: 0.75rem;
+            padding-left: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .coaching-card li:before {
+            display: none;
+        }
+
+        .coaching-card p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .emphasis-underline {
+            font-style: italic;
+        }
+
+        @keyframes squiggle {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 20px 0;
+            }
+        }
+
+        .full-width-section {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .full-width-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: #272266;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .full-width-section ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+        }
+
+        .full-width-section li {
+            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+        }
+
+        .resources-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+        }
+
+        .resources-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: #272266;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .resources-section ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+        }
+
+        .resources-section li {
+            margin-bottom: 1rem;
+            padding-left: 0.5rem;
+        }
+
+        .resources-section p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .resources-section ul li {
+            font-size: 1rem;
+        }
+
+        .work-description {
+            margin-top: 1.5rem;
+        }
+
+        .work-description p {
+            margin-bottom: 1.25rem;
+        }
+
+        /* Credentials Section */
+        .credentials-intro {
+            margin-bottom: 3rem;
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .credential-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            padding: 2rem;
+            transition: box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .credential-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .credential-card h3 {
+            color: #272266;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo-img {
+            width: 100%;
+            height: 70px;
+            object-fit: contain;
+            padding: 0.25rem;
+        }
+
+        .logo-img-tall {
+            width: 100%;
+            height: 90px;
+            object-fit: contain;
+            padding: 0.25rem;
+        }
+
+        .credential-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .credential-details.expanded {
+            max-height: 1000px;
+        }
+
+        .credential-details ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .credential-details li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .credential-details li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #272266;
+        }
+
+        .expand-icon {
+            float: right;
+            color: #272266;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .expand-icon.rotated {
+            transform: rotate(180deg);
+        }
+
+        /* CTA Section */
+        .cta {
+            background-color: #272266;
+            color: #ffffff;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .cta h2 {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            color: #ffffff;
+            opacity: 0.95;
+            margin-bottom: 2.5rem;
+            font-size: 1.2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #7BC70F;
+            color: #ffffff;
+            padding: 1.125rem 3.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+            letter-spacing: 0.02em;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(123, 199, 15, 0.4);
+            background-color: #6eb00d;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #f8f9fa;
+        }
+
+        .testimonials h2 {
+            text-align: center;
+            color: #272266;
+            margin-bottom: 3.5rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 4px;
+            border-left: 4px solid #272266;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            font-size: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #272266;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-title {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            color: #ffffff;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 3rem 2rem;
+            }
+
+            .credentials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .coaching-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #ffffff;
+                flex-direction: column;
+                padding: 1rem 2rem;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                gap: 1rem;
+            }
+
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="Allen Strategies">
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your company is growing. Are you and your people keeping up?</h1>
+            <p>When companies grow fast, leadership must evolve. Entrepreneurs become managers; founders become executives; teams become departments. New complexity emerges. With growth comes complexity and new demands on how leaders think and act. Leaders must take on new roles, responsibilities, and ways of thinking—about the problems they face, the company they're building, its broader context—and about themselves. As the leadership classic reminds us, <em>"What got you here won't get you there."</em></p>
+            
+            <h2>My practice is based on experience.</h2>
+            <p>I joined Google when it had only 12,000 employees and products were being invented daily. I founded and led the company's first central learning function, developing leadership, people management, and company culture at scale. Later, I joined Agoda.com (an Asian unicorn, part of Booking Holdings, the world's leading online travel group) during a period of hypergrowth, serving as its first VP of people and organization development, building out learning and leadership development, HR, performance management, compensation planning, HRIS operations, and more. Doing this work, I learned what leaders and growing companies need to build sustainable success.</p>
+            
+            <p>If you're leading in a time of growth and need help navigating a new level of complexity, or you need help developing your senior people and your organization—let's talk.</p>
+            
+            <a href="https://calendly.com/meetpeterallen" class="cta-button-small">Schedule a Conversation</a>
+        </div>
+        <div class="hero-image">
+            <img src="images/headshot.jpg" alt="Peter Allen">
+        </div>
+    </section>
+
+    <!-- How I Work Section -->
+    <section class="how-i-work">
+        <h2>How I Work</h2>
+        <p>I work with leaders of fast-growing companies to help them address the challenges of growth from a people perspective. I help those in new or growing roles thrive, handle new responsibilities, improve management, and develop unexplored ways of thinking about their roles, their teams—and themselves. I also help organizations develop effective approaches to talent strategy, organizational design, and people systems.</p>
+        
+        <div class="work-list">
+            <p><strong>I do this through</strong></p>
+            
+            <!-- Work Item 1: One-on-one Coaching -->
+            <div class="work-item">
+                <div class="work-item-header" onclick="toggleWorkItem(this)">
+                    <span class="work-item-title">1. One-on-one coaching</span>
+                    <span class="work-item-icon">▼</span>
+                </div>
+                <div class="work-item-content">
+                    <div class="work-item-inner">
+                        <h3>Executive coaching for leaders in times of transition</h3>
+                        <p>Are you taking on a new role, expanding your remit, or facing new organizational complexity? If so, the skills that got you here will need to evolve. I work with executives as a coach and advisor to help them develop new capabilities, navigate complex situations, and grow into their expanding responsibilities. I can help you build your skills and develop new ways of thinking about your leadership, role, and your team.</p>
+                        
+                        <p>Or is it time to think about a new job? If so, you may need to get a better understanding of your motivations, skills, strengths, and derailers, as well as how to position yourself in the market and build your networks to get you to the place you belong.</p>
+                        
+                        <div class="coaching-grid">
+                            <div class="coaching-card">
+                                <div class="coaching-card-icon">
+                                    <img src="images/exec-coaching.svg" alt="Executive Coaching">
+                                </div>
+                                <h4>Executive coaching might help you if...</h4>
+                                <ul>
+                                    <li>You have been promoted into a senior role, or joined a new company. If that's the case, do you fully understand what is expected of you in this position? Do you understand how to manage the relationships that are critical to success? Are you aware that "what got you here won't get you there"?</li>
+                                    <li>You sometimes find it difficult to rise above the many aspects of your day-to-day job to see patterns, think strategically, and prioritize what's most important in the long run</li>
+                                    <li>You feel isolated in your senior role, sometimes finding it difficult to know whom to trust</li>
+                                    <li>You need help strategizing and leading change</li>
+                                    <li>You find interpersonal dynamics at work confusing or frustrating, or you are having difficulty finding the right balance between your own priorities and values and what others want from you</li>
+                                    <li>You are wrestling with how to get the best out of diverse teams, or how to work effectively across cultures, or with issues of gender, sexual orientation, and other kinds of difference.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="coaching-card">
+                                <div class="coaching-card-icon">
+                                    <img src="images/career-coaching.svg" alt="Career Coaching">
+                                </div>
+                                <h4>Career coaching might help you if...</h4>
+                                <ul>
+                                    <li>You are thinking about making a job or career change, but are unsure about exactly what you want and what's really right for you</li>
+                                    <li>Your organization has recently restructured in ways that have affected—or even eliminated—your role</li>
+                                    <li>You have difficulty coming up with a concise and compelling answer to that inevitable request, "Tell me about yourself"</li>
+                                    <li>Your LinkedIn page and resume are out of date and not doing their best job of representing your strengths and distinctive qualities</li>
+                                    <li>You know you need to network more, but don't know how to start—or find networking daunting.</li>
+                                </ul>
+                                <p style="margin-top: 1.5rem;">If you're engaged in a job search, you may find it helpful to review a presentation I made for the University of Chicago careers office called "Job Hunting: Getting the Basics Down." You can <a href="https://www.allenstrategies.com/_files/ugd/e23362_dfbb3fbceb3b4639beb5f46a87978381.pdf" target="_blank" style="color: #272266; text-decoration: underline;">find a copy here</a>, or <a href="https://www.youtube.com/watch?v=-Z8W6XtSPO0" target="_blank" style="color: #272266; text-decoration: underline;">watch the recording here</a>.</p>
+                            </div>
+                        </div>
+
+                        <div class="resources-section">
+                            <h4>Things to think about when looking for a coach</h4>
+                            <p>If you're thinking about coaching, you want to make sure you pick the right person. Here are some questions you can ask:</p>
+                            <ul>
+                                <li><strong>Credentials:</strong> Is the coach certified by the International Coaching Federation? Where did they receive their coaching education—and why did they choose that coaching school?</li>
+                                <li><strong>Background:</strong> Is the coach's experience entirely in the coaching sphere, or do they have industry experience, as well? Do they have experience working in your area, either personally or with other clients?</li>
+                                <li><strong>Approach:</strong> What is their coaching model? What is their coaching philosophy? Do they adhere to a Socratic coaching model, or, if asked, do they share their experience? How do they ensure confidentiality?</li>
+                                <li><strong>Engagement structure:</strong> How long is a typical engagement, and how frequent are meetings? How do they set goals? Do they provide support between meetings when needed? Do they include additional assessments? What does an engagement cost?</li>
+                                <li><strong>Fit:</strong> Do you feel comfortable with the coach and their style? Can you do a short coaching session as part of the discovery call?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="work-item-footer" onclick="toggleWorkItem(this.previousElementSibling.previousElementSibling)">
+                    <span class="work-item-footer-text">Collapse section</span><span class="work-item-footer-icon">▲</span>
+                </div>
+            </div>
+
+            <!-- Work Item 2: Organizational Effectiveness -->
+            <div class="work-item">
+                <div class="work-item-header" onclick="toggleWorkItem(this)">
+                    <span class="work-item-title">2. Organizational effectiveness consulting, from talent strategy to performance systems to culture and change</span>
+                    <span class="work-item-icon">▼</span>
+                </div>
+                <div class="work-item-content">
+                    <div class="work-item-inner">
+                        <h3>Organizational effectiveness for scaling companies</h3>
+                        <p>Growing companies need more than great people: they need scalable talent systems, organizational structures, and leadership practices. I advise organizations on how to design and implement effective approaches to talent strategy, performance management, organizational design, and culture. Drawing on experience building these systems at Google and Agoda, I bring both practical frameworks and an understanding of what actually works during periods of high growth.</p>
+                        
+                        <h4>Is your organization's people strategy fully supporting your growth?</h4>
+                        <p>All too often, executives focus on external and financial goals and neglect their organizations and people. The result is that their leadership teams, and entire departments, don't work well together, creating conflicts that impede effectiveness, waste time and money, and cause frustration.</p>
+                        
+                        <p>I help leaders build, improve, and redesign these critical aspects of their organizations. I find the interpersonal and structural misalignments that make it hard for teams to work together to make an organization stronger, and more effective. I also help organizations develop strategic, practical, and innovative learning solutions to people-based business problems so that you can keep ahead of the changes you face every day.</p>
+                        
+                        <div class="coaching-grid">
+                            <div class="coaching-card">
+                                <div class="coaching-card-icon">
+                                    <img src="images/work-better.svg" alt="Work Better">
+                                </div>
+                                <h4>I help leaders make their organizations <span class="emphasis-underline">work better</span> by</h4>
+                                <ul>
+                                    <li>Developing a clear vision for the future and define and communicate organizational purpose in ways that motivate employee performance</li>
+                                    <li>Designing compensation and benefits programs that support your culture and motivate employees to contribute to organizational success</li>
+                                    <li>Ensuring that culture is supporting profitability and growth, not working against it</li>
+                                    <li>Structuring leadership teams and departments in ways that promote cooperation, rather than cause conflict and confusion</li>
+                                    <li>Redesigning human resources functions so that they support the needs of senior leaders, while also handling operations in an efficient and scalable way.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="coaching-card">
+                                <div class="coaching-card-icon">
+                                    <img src="images/build-orgs.svg" alt="Build Organizations">
+                                </div>
+                                <h4>I help leaders <span class="emphasis-underline">build</span> their organizations by</h4>
+                                <ul>
+                                    <li>Ensuring they are hiring and developing the right talent, and retaining the people they need most for both today's and tomorrow's needs</li>
+                                    <li>Preparing for the future by assessing skills and gaps and planning for succession</li>
+                                    <li>Ensuring that they are being inclusive by making diversity work for them.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="work-item-footer" onclick="toggleWorkItem(this.previousElementSibling.previousElementSibling)">
+                    <span class="work-item-footer-text">Collapse section</span><span class="work-item-footer-icon">▲</span>
+                </div>
+            </div>
+
+            <!-- Work Item 3: Leadership Development -->
+            <div class="work-item">
+                <div class="work-item-header" onclick="toggleWorkItem(this)">
+                    <span class="work-item-title">3. Leadership development courses and programs</span>
+                    <span class="work-item-icon">▼</span>
+                </div>
+                <div class="work-item-content">
+                    <div class="work-item-inner">
+                        <h3>Leadership development programs and facilitation</h3>
+                        <p>If you want your company to grow sustainably, you need to develop leaders at every level. I work with companies to design and deliver leadership programs, from teaching first-time managers how to manage to facilitating workshops for executive teams. With experience teaching at leading colleges, universities, and business schools in the U.S. and overseas, I bring both academic rigor and practical knowledge to leadership development. I design and deliver leadership development programs that are built on company values and support company and individual growth.</p>
+                        
+                        <h4>Programs I have designed and delivered to help leaders and organizations grow:</h4>
+                        <ul class="programs-list">
+                            <li><strong>Google, Inc.</strong>
+                                <ul>
+                                    <li>New hire orientation</li>
+                                    <li>Ethical leadership</li>
+                                </ul>
+                            </li>
+                            <li><strong>Agoda</strong>
+                                <ul>
+                                    <li>Leadership Lab</li>
+                                    <li>New hire orientation</li>
+                                    <li>Performance management for people managers</li>
+                                </ul>
+                            </li>
+                            <li><strong>APL Group / Aegis Ventures</strong>
+                                <ul>
+                                    <li>Performance management</li>
+                                    <li>Introduction to OKRs</li>
+                                    <li>Difficult Conversations</li>
+                                    <li>Feedback</li>
+                                </ul>
+                            </li>
+                            <li><strong>Standard Chartered Bank</strong>
+                                <ul>
+                                    <li>New manager orientation</li>
+                                </ul>
+                            </li>
+                            <li><strong>Hult International Business School</strong> (2022 executive MBA faculty member of the year)
+                                <ul>
+                                    <li>Introduction to Business Strategy</li>
+                                    <li>International Business Consulting</li>
+                                    <li>Introduction to People Analytics</li>
+                                    <li>Business and Global Society</li>
+                                    <li>Creative Problem Solving</li>
+                                </ul>
+                            </li>
+                            <li><strong>McKinsey & Company</strong>
+                                <ul>
+                                    <li>Introduction to Business Strategy for Consultants</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="work-item-footer" onclick="toggleWorkItem(this.previousElementSibling.previousElementSibling)">
+                    <span class="work-item-footer-text">Collapse section</span><span class="work-item-footer-icon">▲</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credentials Section -->
+    <section class="credentials">
+        <div class="credentials-intro">
+            <h2>Credentials</h2>
+            <p>I come to my work with a broad and deep set of professional skills and experiences. I've built learning and people functions at Google and Agoda.com, delivered strategy consulting and taught strategy at McKinsey & Company, served as chief people officer in a private equity firm, and taught at Princeton, Yale, USC, and other universities and business schools in the U.S. and Asia. This background helps me coach leaders both as a resource and as a peer, bringing practical operating experience, strategic thinking, empathy, and intellectual depth.</p>
+        </div>
+
+        <div class="credentials-grid">
+            <!-- Business Experience -->
+            <div class="credential-card" onclick="toggleCredential(this)">
+                <h3>Business Experience <span class="expand-icon">▼</span></h3>
+                <div class="logo-grid">
+                    <img src="images/google.png" alt="Google" class="logo-img-tall">
+                    <img src="images/agoda.png" alt="Agoda" class="logo-img-tall">
+                    <img src="images/mckinsey.png" alt="McKinsey" class="logo-img-tall">
+                    <img src="images/booking.png" alt="Booking Holdings" class="logo-img-tall">
+                    <img src="images/apl.png" alt="APL Group" class="logo-img-tall">
+                </div>
+                <div class="credential-details">
+                    <ul>
+                        <li>Founder and director, Google University, Google</li>
+                        <li>VP of People and Organization Development, Agoda.com (Singapore/Bangkok, part of Booking Holdings)</li>
+                        <li>Chief People Officer and Managing Director, APL Group (private equity)</li>
+                        <li>Talent management, Standard Chartered Bank (Singapore)</li>
+                        <li>Consultant and core member of the strategy practice learning team, McKinsey & Company</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Teaching Experience -->
+            <div class="credential-card">
+                <h3>Teaching Experience</h3>
+                <div class="logo-grid" style="grid-template-columns: repeat(2, 1fr);">
+                    <img src="images/princeton.png" alt="Princeton" class="logo-img-tall">
+                    <img src="images/yalenus.png" alt="Yale-NUS" class="logo-img-tall">
+                    <img src="images/usc.png" alt="USC" class="logo-img-tall">
+                    <img src="images/pomona.png" alt="Pomona" class="logo-img-tall">
+                    <img src="images/nanyang.png" alt="Nanyang" class="logo-img-tall">
+                    <img src="images/hult.png" alt="Hult" class="logo-img-tall">
+                </div>
+            </div>
+
+            <!-- Degrees & Certifications -->
+            <div class="credential-card" onclick="toggleCredential(this)">
+                <h3>Degrees & Certifications <span class="expand-icon">▼</span></h3>
+                <div class="logo-grid">
+                    <img src="images/wharton.png" alt="Wharton" class="logo-img-tall">
+                    <img src="images/uchicago.png" alt="University of Chicago" class="logo-img-tall">
+                    <img src="images/pcc.png" alt="ICF PCC" class="logo-img-tall">
+                    <img src="images/hudson.png" alt="Hudson Institute" class="logo-img-tall">
+                </div>
+                <div class="credential-details">
+                    <ul>
+                        <li>M.B.A., strategic management and health care management, Wharton</li>
+                        <li>Ph.D., humanities, University of Chicago</li>
+                        <li>ICF-certified Professional Certified Coach (PCC), graduate of the Hudson Institute of Coaching</li>
+                        <li>Hogan personality assessment certified</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <h2>Let's Talk</h2>
+        <p>Ready to navigate your next level of growth? Schedule a conversation today.</p>
+        <a href="https://calendly.com/meetpeterallen" class="cta-button">Schedule a Conversation</a>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Clients Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p class="testimonial-text">"Peter and I began working together during a time when I was grappling with what it truly meant to be a CEO in a small company with a fairly flat, consensus-driven culture. He helped me recognize the habits that were holding me back from fully embracing my role and leveraging my strengths as the organization encountered pivotal moments. Peter was always available to help me either focus on the details or step back for a broader perspective at crucial times. His genuine investment in my personal growth established an environment of trust, enabling us to have candid conversations that addressed both the personal and professional aspects of my role. Our coaching sessions were collaborative; Peter brought in new frameworks, tools, reading materials, and other resources that ensured the process continued to benefit me even after our sessions. I wholeheartedly recommend Peter to anyone stepping into a new role, discovering their leadership style, or making significant career transitions."</p>
+                <p class="testimonial-author">Benjamin Zehr</p>
+                <p class="testimonial-title">CEO, Reciprocal Ventures</p>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">"I began working with Peter during a period of professional transition and have continued to see him as my responsibilities and expectations have evolved. Peter has been a thoughtful, steady presence as I've worked through questions of priorities, personal strengths, and long-term goals. Having structured time for reflection has helped me maintain perspective and approach my role with greater clarity and intention. I place real trust in Peter's judgment and I am grateful to have had his guidance in times of uncertainty. He has been particularly helpful as I made my successful transition from senior associate to principal."</p>
+                <p class="testimonial-author">Genty Daku</p>
+                <p class="testimonial-title">Principal, KKR</p>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">"I recently embarked on a significant career change—leaving a tenured role at a large, global company for a role at a small, high-growth startup. Peter was instrumental in guiding me through the entire process of interviewing, negotiating the offer, and settling into my new role. He was a guiding force, always ensuring that I was taking steps in the best interest of my career and personal goals. Peter truly embodies what it means to be a coach and is always in my corner. He has helped me grow and develop in ways I would not have been able to without his counsel."</p>
+                <p class="testimonial-author">Melissa Ekanem</p>
+                <p class="testimonial-title">VP, Fintech Company</p>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">"I worked with Peter when I was managing the stresses of a C-level leadership role at a high-growth startup while welcoming our first child. Peter was a trusted sounding board for the changes I was noticing in myself and in my priorities. Stepping back for guided introspection with him was incredibly helpful. Peter helped me find the best path forward for myself and my family."</p>
+                <p class="testimonial-author">Tim A.</p>
+                <p class="testimonial-title">Santa Barbara, CA</p>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-text">"I engaged Peter Allen for a 6-week engagement to help me discover my next step. I was, and still am, the Managing Partner of the NYC office of a global accounting firm. After the 6 weeks, with Peter as a contributing factor, I was able to commence a journey that would create greater work life balance, which included more connectivity in all my personal and business relationships, stronger bonds with my team, happier clients, a growing and thriving practice, and greater and more authentic self-expression in my current space."</p>
+                <p class="testimonial-author">Richard L.</p>
+                <p class="testimonial-title">New York</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Allen Strategies. Designed by Terence Wang. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleCredential(card) {
+            const details = card.querySelector('.credential-details');
+            const icon = card.querySelector('.expand-icon');
+            
+            details.classList.toggle('expanded');
+            icon.classList.toggle('rotated');
+        }
+
+        function toggleWorkItem(header) {
+            const content = header.nextElementSibling;
+            const headerIcon = header.querySelector('.work-item-icon');
+            const footer = content.nextElementSibling;
+            
+            const isExpanding = !content.classList.contains('expanded');
+            
+            content.classList.toggle('expanded');
+            headerIcon.classList.toggle('rotated');
+            
+            if (isExpanding) {
+                footer.classList.add('visible');
+            } else {
+                footer.classList.remove('visible');
+            }
+        }
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications | Allen Strategies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background-color: #ffffff;
+            font-weight: 300;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #1a1a1a;
+        }
+
+        h1 { 
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #272266;
+        }
+        h2 { 
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #272266;
+            margin-bottom: 2rem;
+        }
+        h3 { 
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Header/Navigation */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1.25rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            transition: color 0.3s;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links a:hover {
+            color: #272266;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #272266;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .nav-links.mobile-active {
+            display: flex;
+        }
+
+        /* Page Header */
+        .page-header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem 2rem 2rem;
+            text-align: center;
+        }
+
+        /* LinkedIn Articles Section */
+        .linkedin-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 2rem 3rem 2rem;
+            text-align: center;
+        }
+
+        .linkedin-section p {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+
+        .linkedin-button {
+            display: inline-block;
+            background-color: #272266;
+            color: #ffffff;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s;
+            letter-spacing: 0.02em;
+        }
+
+        .linkedin-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(39, 34, 102, 0.3);
+        }
+
+        /* Category Sections */
+        .category-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .category-section:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+
+        .category-section h2 {
+            margin-bottom: 3rem;
+        }
+
+        /* Article Grid */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .article-card {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .article-thumbnail {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+
+        .article-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .article-content {
+            padding: 1.5rem;
+        }
+
+        .article-content h3 {
+            color: #272266;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .article-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .article-link {
+            display: inline-block;
+            color: #272266;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-bottom: 2px solid #272266;
+            transition: opacity 0.2s;
+        }
+
+        .article-link:hover {
+            opacity: 0.7;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            color: #ffffff;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #ffffff;
+                flex-direction: column;
+                padding: 1rem 2rem;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                gap: 1rem;
+            }
+
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="Allen Strategies">
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>Publications</h1>
+    </div>
+
+    <!-- LinkedIn Articles -->
+    <div class="linkedin-section">
+        <p>For my latest articles on leadership, organizational development, and workplace dynamics, visit my LinkedIn page.</p>
+        <a href="https://www.linkedin.com/in/peterallenprofile/recent-activity/articles/" target="_blank" class="linkedin-button">View LinkedIn Articles</a>
+    </div>
+
+    <!-- Career Development -->
+    <section class="category-section">
+        <h2>Career Development</h2>
+        <div class="article-grid">
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="images/job-hunting.png" alt="Job Hunting">
+                </div>
+                <div class="article-content">
+                    <h3>Job-Hunting: Getting the Basics Down</h3>
+                    <p>Peter Allen is both an executive coach and a career coach. He recently gave a workshop for University of Chicago alumni about the most important things to know about the job search. Topics include your résumé and LinkedIn page; how to answer the universal request, "Tell me about yourself"; why networking is important and what to know about it; using some basic AI tools; and other resources.</p>
+                    <a href="https://www.youtube.com/watch?v=-Z8W6XtSPO0" target="_blank" class="article-link">Watch Video →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- People and Organization Development -->
+    <section class="category-section">
+        <h2>People and Organization Development</h2>
+        <div class="article-grid">
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="images/killer-kpi.png" alt="Quest for a Killer KPI">
+                </div>
+                <div class="article-content">
+                    <h3>The Quest for a Killer KPI</h3>
+                    <p>How radically simplifying performance metrics helped one company align employee behavior with organizational goals, make smarter investments in the business, and foster a culture of learning and cooperation. Co-authored with Omri Morgenshtern and Robert Rosenstein. MIT Sloan Management Review 2022</p>
+                    <a href="https://sloanreview.mit.edu/article/the-quest-for-a-killer-kpi/" target="_blank" class="article-link">View More →</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="images/agoda-analytics.png" alt="People Analytics at Agoda">
+                </div>
+                <div class="article-content">
+                    <h3>People Analytics and Business Culture at Agoda</h3>
+                    <p>Case A and B (co-author; case subject), Kenneth Goh and Ken Mark: Ivey Publishing (9B17C024, 9B17C025), Ivey Business School (2017). Ivey Best Seller Award</p>
+                    <a href="https://www.iveypublishing.ca/s/product/agoda-people-analytics-and-business-culture-a/01t5c00000CwmuXAAR" target="_blank" class="article-link">View More →</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="images/hr-philosophy.png" alt="HR Philosophy">
+                </div>
+                <div class="article-content">
+                    <h3>Toward a New HR Philosophy</h3>
+                    <p>McKinsey Quarterly, 2015</p>
+                    <a href="https://www.mckinsey.com/business-functions/organization/our-insights/toward-a-new-hr-philosophy" target="_blank" class="article-link">View More →</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="images/performance-appraisals.png" alt="Performance Appraisals">
+                </div>
+                <div class="article-content">
+                    <h3>Performance Appraisals with More Gain, Less Pain</h3>
+                    <p>Harvard Management Communication Letter</p>
+                    <a href="https://hbswk.hbs.edu/archive/performance-appraisals-with-more-gain-less-pain-evaluate-this-the-new-performance-review" target="_blank" class="article-link">View More →</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="images/diversity-inclusion.png" alt="Diversity and Inclusion">
+                </div>
+                <div class="article-content">
+                    <h3>Increasing Innovation and Productivity in Singapore: The Role of Diversity and Inclusion</h3>
+                    <p>Editor, Point-of-View Paper, Government and Regional Affairs Committee, American Chamber of Commerce, Singapore (2019)</p>
+                    <a href="https://amcham.com.sg/wp-content/uploads/2019/07/The-Diversity-Inclusion-White-Paper.pdf" target="_blank" class="article-link">View More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning and Development -->
+    <section class="category-section">
+        <h2>Learning and Development</h2>
+        <div class="article-grid">
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="images/art-of-learning.png" alt="The Art of Learning">
+                </div>
+                <div class="article-content">
+                    <h3>The Art of Learning</h3>
+                    <p>Peter Allen interviews chess champion Josh Waitzkin at Google.</p>
+                    <a href="http://www.youtube.com/watch?v=gTZS3SqpT-o" target="_blank" class="article-link">View More →</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="images/cs-learning.png" alt="Computer Science Learning">
+                </div>
+                <div class="article-content">
+                    <h3>The Future of Computer Science Learning</h3>
+                    <p>By Mehran Sahami, Associate Chair of undergraduate computer science at Stanford University</p>
+                    <a href="http://www.youtube.com/watch?v=yOOJzQRJfIw" target="_blank" class="article-link">View More →</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="images/emotional-intelligence.png" alt="Emotional Intelligence">
+                </div>
+                <div class="article-content">
+                    <h3>Emotional Intelligence</h3>
+                    <p>Peter Allen introduces Daniel Goleman in the Authors@Google series</p>
+                    <a href="http://www.youtube.com/watch?v=-hoo_dIOP8k" target="_blank" class="article-link">View More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Sharing Economy -->
+    <section class="category-section">
+        <h2>The Sharing Economy</h2>
+        <div class="article-grid">
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="images/vacation-rentals.png" alt="At Home Around the World">
+                </div>
+                <div class="article-content">
+                    <h3>At Home around the World: The Short-Term Rentals Handbook for Guests, Hosts, Neighbors, and Governments</h3>
+                    <p>Co-authored with Robert Rosenstein, Co-founder and Chairman, Agoda.com. Available at www.vacationrentalhandbook.com</p>
+                    <a href="https://www.amazon.com/Home-around-World-Short-term-Governments-ebook/dp/B07LG18RWD" target="_blank" class="article-link">View More →</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="images/local-host-rentals.png" alt="Local Host Rentals">
+                </div>
+                <div class="article-content">
+                    <h3>Making Local Host Rentals Work for All</h3>
+                    <p>Business Korea, March 29, 2019.</p>
+                    <a href="http://www.businesskorea.co.kr/news/articleView.html?idxno=30409" target="_blank" class="article-link">View More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Strategy -->
+    <section class="category-section">
+        <h2>Business Strategy</h2>
+        <div class="article-grid">
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="images/online-travel.png" alt="Online Travel Agencies">
+                </div>
+                <div class="article-content">
+                    <h3>Online Travel Agencies in Asia: A Major Opportunity in E-Services</h3>
+                    <p>(Co-author), RCEP Publications, Asian Trade Centre, Singapore (2017) and Policy Brief 17-10 (in English, Mandarin, Korean)</p>
+                    <a href="https://static1.squarespace.com/static/5393d501e4b0643446abd228/t/59ed90808c56a88ac98cc755/1508741301259/OTA+Whitepaper+Oct+2017.pdf" target="_blank" class="article-link">View More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Humanities -->
+    <section class="category-section">
+        <h2>Humanities</h2>
+        <div class="article-grid">
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="images/wages-of-sin.png" alt="The Wages of Sin">
+                </div>
+                <div class="article-content">
+                    <h3>The Wages of Sin: Sex and Disease, Past and Present</h3>
+                    <p>On the cultural pre-history of the AIDS crisis. University of Chicago Press</p>
+                    <a href="https://www.amazon.com/Wages-Sin-Disease-Past-Present/dp/0226014614/ref=sr_1_1?dchild=1&keywords=9780226014609&linkCode=qs&qid=1597575963&s=books&sr=1-1" target="_blank" class="article-link">View More →</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="images/art-of-love.png" alt="The Art of Love">
+                </div>
+                <div class="article-content">
+                    <h3>The Art of Love: Amatory Fiction from Ovid to the Romance of the Rose</h3>
+                    <p>University of Pennsylvania Press</p>
+                    <a href="https://www.upenn.edu/pennpress/book/22.html" target="_blank" class="article-link">View More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Literary -->
+    <section class="category-section">
+        <h2>Literary</h2>
+        <div class="article-grid">
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="images/driving-cohn.png" alt="Driving Mr. Cohn">
+                </div>
+                <div class="article-content">
+                    <h3>NEW YORK OBSERVED; Driving Mr. Cohn</h3>
+                    <p>Memoir of my experiences driving for New York attorney Roy Cohn and the connections with Tony Kushner's TONY-winning play Angels in America.</p>
+                    <a href="https://www.nytimes.com/2003/12/07/nyregion/new-york-observed-driving-mr-cohn.html" target="_blank" class="article-link">View More →</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="images/books-endings.png" alt="Books, Endings, Beginnings">
+                </div>
+                <div class="article-content">
+                    <h3>Books, Endings, Beginnings.</h3>
+                    <p>Beginnings and endings - life and literature are full of both. In this piece from the Modern Elder Academy's Wisdom Well blog, I reflect on the path to here, and the journey ahead.</p>
+                    <a href="https://wisdomwell.modernelderacademy.com/books-endings-beginnings" target="_blank" class="article-link">View More →</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-thumbnail">
+                    <img src="images/finding-values.png" alt="Finding Values">
+                </div>
+                <div class="article-content">
+                    <h3>Finding Values in a Time of Transition</h3>
+                    <p>In the darkness, when external landmarks disappear and the path forward is unclear or simply invisible, moving forward requires an inner sense of direction. When external factors are gone, inner values become more and more important; they are the compass points that help set one's direction and find one's way.</p>
+                    <a href="https://www.linkedin.com/pulse/finding-values-time-transition-peter-allen/" target="_blank" class="article-link">View More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Allen Strategies. Designed by Terence Wang. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-active');
+        }
+    </script>
+</body>
+</html>

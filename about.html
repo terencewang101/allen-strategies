@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Peter | Allen Strategies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background-color: #ffffff;
+            font-weight: 300;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        h1 { 
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        h2 { 
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: #272266;
+        }
+        h3 { 
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        p, li {
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 1.125rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        strong {
+            font-weight: 500;
+        }
+
+        em {
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        /* Header/Navigation */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 1.25rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 300;
+            transition: color 0.3s;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links a:hover {
+            color: #272266;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #272266;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        .nav-links.mobile-active {
+            display: flex;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .hero-content h1 {
+            color: #272266;
+            margin-bottom: 2rem;
+            line-height: 1.15;
+        }
+
+        .hero-content p {
+            margin-bottom: 1.25rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #7BC70F;
+            color: #ffffff;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Noto Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+            letter-spacing: 0.02em;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(123, 199, 15, 0.4);
+            background-color: #6eb00d;
+        }
+
+        /* Credential Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .credentials-section {
+            background-color: #f8f9fa;
+        }
+
+        .credentials-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .logo-grid img {
+            max-width: 120px;
+            max-height: 120px;
+            object-fit: contain;
+        }
+
+        /* Landscape Photo */
+        .landscape-photo {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .landscape-photo img {
+            width: 100%;
+            max-width: 100%;
+            border-radius: 4px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Education Section */
+        .education-section {
+            background-color: #ffffff;
+        }
+
+        .education-subsection {
+            margin-bottom: 2.5rem;
+        }
+
+        .education-subsection h3 {
+            color: #272266;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .education-subsection p {
+            margin-bottom: 0.75rem;
+        }
+
+        .education-subsection a {
+            color: #272266;
+            text-decoration: underline;
+        }
+
+        /* Honors Section */
+        .honors-section {
+            background-color: #f8f9fa;
+        }
+
+        .honors-section ul {
+            list-style-type: disc;
+            margin-left: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .honors-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            color: #ffffff;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 3rem 2rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #ffffff;
+                flex-direction: column;
+                padding: 1rem 2rem;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                gap: 1rem;
+            }
+
+            .logo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .logo-grid img {
+                max-width: 80px;
+                max-height: 80px;
+            }
+
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="Allen Strategies">
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-image">
+            <img src="images/headshot2.jpg" alt="Peter Allen">
+        </div>
+        <div class="hero-content">
+            <h1>About</h1>
+            <p>I have built my career on developing people and organizations. An expert on people and culture, I have led the People function at two companies. I have consulted in McKinsey's Strategy and Organization practices; founded and led Google's central learning and development program; worked in talent management at Standard Chartered Bank; and built and led People and Organization Development and Public Affairs at Agoda.com, the Asia-based subsidiary of the Priceline-Booking Holdings group, the world's leading online travel platform, and led the People function at APL Group and learning and leadership development at Aegis Ventures.</p>
+            
+            <p>My education includes an M.B.A. in strategic management and health care management from Wharton and a Ph.D. in the humanities from the University of Chicago. I have served on the faculties of Princeton University, U.S.C., Pomona College, Nanyang Business School, Yale-National University of Singapore College, and Hult International Business School. I am a graduate of the Hudson Institute of Coaching and am certified as a coach by the International Coaching Federation.</p>
+            
+            <a href="https://calendly.com/allenstrategies" class="cta-button">Schedule a Chat</a>
+        </div>
+    </section>
+
+    <!-- Business Experience -->
+    <section class="credentials-section">
+        <h2>Business Experience</h2>
+        <div class="logo-grid">
+            <img src="images/google.png" alt="Google">
+            <img src="images/agoda.png" alt="Agoda">
+            <img src="images/mckinsey.png" alt="McKinsey">
+            <img src="images/apl.png" alt="APL Group">
+            <img src="images/standardchartered.png" alt="Standard Chartered">
+            <img src="images/aegis.png" alt="Aegis Ventures">
+            <img src="images/amchamsg.png" alt="AmCham Singapore">
+        </div>
+    </section>
+
+    <!-- Academic Experience -->
+    <section class="credentials-section" style="background-color: #ffffff;">
+        <h2>Academic Experience</h2>
+        <div class="logo-grid">
+            <img src="images/princeton.png" alt="Princeton">
+            <img src="images/wharton.png" alt="Wharton">
+            <img src="images/uchicago.png" alt="University of Chicago">
+            <img src="images/pomona.png" alt="Pomona College">
+            <img src="images/usc.png" alt="USC">
+            <img src="images/nanyang.png" alt="Nanyang Business School">
+            <img src="images/yalenus.png" alt="Yale-NUS">
+            <img src="images/hult.png" alt="Hult">
+            <img src="images/haverford.png" alt="Haverford College">
+            <img src="images/poitiers.png" alt="Université de Poitiers">
+        </div>
+    </section>
+
+    <!-- Boards, Community Service, Memberships -->
+    <section class="credentials-section">
+        <h2>Boards, Community Service, Memberships</h2>
+        <div class="logo-grid">
+            <img src="images/agoda.png" alt="Agoda">
+            <img src="images/amchamsg.png" alt="AmCham Singapore">
+            <img src="images/attia.png" alt="Attia">
+            <img src="images/amchamtaipei.png" alt="AmCham Taipei">
+            <img src="images/mckinsey.png" alt="McKinsey">
+            <img src="images/shrm.png" alt="SHRM">
+            <img src="images/reachingout.png" alt="Reaching Out">
+        </div>
+    </section>
+
+    <!-- Landscape Photo -->
+    <div class="landscape-photo">
+        <img src="images/headshot-landscape.jpg" alt="Peter Allen">
+    </div>
+
+    <!-- Education -->
+    <section class="education-section">
+        <h2>Education</h2>
+        
+        <div class="education-subsection">
+            <h3>Business:</h3>
+            <p>I received my M.B.A. in strategic management and health care management from the <a href="http://www.wharton.upenn.edu/about/about-wharton.cfm" target="_blank">Wharton School of the University of Pennsylvania.</a></p>
+        </div>
+
+        <div class="education-subsection">
+            <h3>Humanities:</h3>
+            <p>I hold degrees in literature from <a href="http://www.haverford.edu/abouthaverford/" target="_blank">Haverford College</a> (B.A.), the <a href="http://www.univ-poitiers.fr/" target="_blank">Université de Poitiers</a> (D.E.A.), and the <a href="http://www.uchicago.edu/about/index.shtml" target="_blank">University of Chicago</a> (M.A., Ph.D.)</p>
+        </div>
+
+        <div class="education-subsection">
+            <h3>Languages:</h3>
+            <p><strong>French:</strong> I am fluent in French, having completed a Diplôme d'études approfondies (littérature française et comparée) at the Centre d'Etudes Supérieures de Civilisation Médiévale de l'Université de Poitiers and taught French language and literature at Princeton University, the University of Southern California, and Pomona College.</p>
+            <p><strong>Italian:</strong> Conversational/reading knowledge</p>
+            <p><strong>German:</strong> Conversational/reading knowledge</p>
+            <p><strong>Spanish:</strong> Intermediate</p>
+            <p><strong>Mandarin:</strong> Beginning conversation</p>
+            <p><strong>Latin, Old and Middle English, Old French:</strong> Reading knowledge</p>
+        </div>
+    </section>
+
+    <!-- Honors and Awards -->
+    <section class="honors-section">
+        <h2>Honors and Awards</h2>
+        <p>I have received honors, grants, and awards from a number of organizations, including:</p>
+        <ul>
+            <li>The American Academy in Rome</li>
+            <li>The Wharton School</li>
+            <li>The College of Physicians of Philadelphia</li>
+            <li>Pomona College</li>
+            <li>The National Endowment for the Humanities</li>
+            <li>The Andrew W. Mellon Foundation</li>
+            <li>UCLA</li>
+            <li>Princeton University</li>
+            <li>The Whiting Foundation</li>
+            <li>The Rotary Foundation</li>
+            <li>The University of Chicago</li>
+            <li>Haverford College</li>
+            <li>The St. Andrew's Society of Philadelphia</li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Allen Strategies. Designed by Terence Wang. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-active');
+        }
+    </script>
+</body>
+</html>
